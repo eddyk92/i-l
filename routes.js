@@ -1,88 +1,28 @@
 // routes.js
 import React, { Component } from 'react'
-import { Route, IndexRoute, Link } from 'react-router'
+import { Route, IndexRoute } from 'react-router'
+
+// Store
+import AppStore from './stores/AppStore'
 
 // Main component
-class App extends Component {
-  componentDidMount(){
-    document.body.className=''
-  }
-  render(){
-    return (
-      <div>
-        <h1>Invincible Leaders</h1>
-           <nav>
-              <ul>
-                 <li><Link to="/">Home</Link></li>
-                 <li><Link to="/about">About</Link></li>
-                 <li><Link to="/exercises">Exercises</Link></li>
-                 <li><Link to="/contact">Contact</Link></li>
-              </ul>
-           </nav>
-        { this.props.children }
-      </div>
-    )
-  }
-}
+import App from './components/App'
 
 // Pages
-class Home extends Component {
-  render(){
-    return (
-      <div>
-        <h2>Home</h2>
-        <div>hello</div>
-      </div>
-    )
-  }
-}
-class About extends Component {
-  render(){
-    return (
-      <div>
-        <h2>About</h2>
-        <div>Some about page content</div>
-      </div>
-    )
-  }
-}
-class Exercises extends Component {
-  render(){
-    return (
-      <div>
-        <h2>Exercises</h2>
-        <div>Some exercise page content</div>
-      </div>
-    )
-  }
-}
-class Contact extends Component {
-  render(){
-    return (
-      <div>
-        <h2>Contact</h2>
-        <div>Some contact page content</div>
-      </div>
-    )
-  }
-}
-class NoMatch extends Component {
-  render(){
-    return (
-      <div>
-        <h2>NoMatch</h2>
-        <div>404 error</div>
-      </div>
-    )
-  }
-}
+import Blog from './components/Pages/Blog'
+import Default from './components/Pages/Default'
+import Blog from './components/Pages/Blog'
+import Exercises from './components/Pages/Exercises'
+import NoMatch from './components/Pages/NoMatch'
 
 export default (
-  <Route path="/" component={App}>
-    <IndexRoute component={Home}/>
+  <Route path="/" data={AppStore.data} component={App}>
+    <IndexRoute component={Blog}/>
     <Route path="about" component={About}/>
     <Route path="exercises" component={Exercises}/>
     <Route path="contact" component={Contact}/>
+    // <Route path="/work/:slug" component={Work}/>
+    // <Route path="/blog/:slug" component={Blog}/>
     <Route path="*" component={NoMatch}/>
   </Route>
 )
