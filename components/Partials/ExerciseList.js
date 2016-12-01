@@ -40,7 +40,7 @@ export default class ExerciseList extends Component {
     exercise_items = _.take(exercise_items, item_num)
     
     let articles_html = exercise_items.map(( exercise_item ) => {
-      let date_obj = new Date(work_item.created)
+      let date_obj = new Date(exercise_item.created)
       let created = (date_obj.getMonth()+1) + '/' + date_obj.getDate() + '/' + date_obj.getFullYear()
       return (
         <div key={ 'key-' + exercise_item.slug }>

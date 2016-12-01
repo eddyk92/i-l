@@ -18,7 +18,7 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute component={Home}/>
     <Route path="about" component={About}/>
-    <Route path="exercises" component={Exercises}/>
+    <Route path="exercise" component={Exercises}/>
     <Route path="contact" component={Contact}/>
     <Route path="*" component={NoMatch}/>
   </Route>
